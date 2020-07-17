@@ -1,0 +1,30 @@
+name: Greetings
+
+on: [pull_request, issues]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/first-interaction@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        issue-message: 'Message that will be displayed on users'' first issue'
+        pr-message: 'Message that will be displayed on users'' first pr'
+-名称：设置Node.js环境
+  用途：actions/setup-node@v2.1.0
+  与：
+    ＃在npmrc中设置always-auth
+    always-auth：＃可选，默认为false
+    ＃版本要使用的版本规范。例如：12.x，10.15.1，> = 10.15.0
+    节点版本：＃可选
+    ＃如果您希望操作检查符合版本规格的最新可用版本，请设置此选项
+    检查最新：＃可选
+    ＃用于设置auth的可选注册表。将在项目级别的.npmrc和.yarnrc文件中设置注册表，并设置身份验证以从env.NODE_AUTH_TOKEN读取
+    注册表网址：＃可选
+    ＃用于对范围内的注册表进行身份验证的可选范围
+    范围：＃可选
+    ＃用于从节点版本中提取节点分布。由于存在默认设置，因此通常用户不提供此设置。
+    令牌：＃可选，默认为$ {{github.token}}
+    ＃不推荐使用。请改用node-version。2019年10月1日之后将不再受支持
+    版本：＃可选
