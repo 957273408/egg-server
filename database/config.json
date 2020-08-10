@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "sud",
-    "password": "Sun123456.",
+    "username": "root",
+    "password": "123",
     "database": "egg-sequelize-doc-default",
-    "host": "39.107.89.227",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {

@@ -4,10 +4,12 @@
 import 'egg';
 import ExportBase from '../../../app/controller/base';
 import ExportUsers from '../../../app/controller/users';
+import ExportWechat from '../../../app/controller/wechat';
 
 declare module 'egg' {
   interface IController {
     base: ExportBase;
     users: ExportUsers;
+    wechat: ExportWechat;
   }
 }
