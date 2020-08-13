@@ -1,14 +1,15 @@
-import { Application, IBoot } from 'egg';
-
+import { Application, IBoot } from "egg";
+import { Wechaty } from "wechaty";
 export default class FooBoot implements IBoot {
   private readonly app: Application;
+  private bot: Wechaty;
 
   constructor(app: Application) {
     this.app = app;
   }
 
   configWillLoad() {
-      this.app
+    this.app;
     // Ready to call configDidLoad,
     // Config, plugin files are referred,
     // this is the last chance to modify the config.
@@ -32,7 +33,24 @@ export default class FooBoot implements IBoot {
   }
 
   async serverDidReady() {
-    // Server is listening.
+
+    this.bot = new Wechaty({ name: "WechatEveryDay" });
+    this.bot.on("scan", (qrcode) => {
+      console.log(qrcode)
+      const qrImgUrl = [
+        "https://api.qrserver.com/v1/create-qr-code/?data=",
+        encodeURIComponent(qrcode),
+      ].join("");
+      console.log(qrImgUrl)
+      this.app.config.qrImgUrl = qrImgUrl;
+    });
+    this.bot.on("login", (user) => {
+      console.log(`贴心助理${user}登录了`);
+    });
+    this.bot.on("logout", (user) => {
+      console.log(`贴心助理${user}退出了`);
+    });
+    this.bot.start();
   }
 
   async beforeClose() {
