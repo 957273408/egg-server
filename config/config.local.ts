@@ -7,15 +7,15 @@ export default () => {
     // 单数据库信息配置
     dialect: "mysql",
     // host
-    host: "127.0.0.1",
+    host: "39.107.89.227",
     // 端口号
     port: 3306,
     // 用户名
-    username: "root",
+    username: "sud",
     // 密码
-    password: "123",
+    password: "123456",
     // 数据库名
-    database: "egg-sequelize-doc-default",
+    database: "sud_test",
   };
 
   // 目的是将业务配置属性合并到 EggAppConfig 中返回
